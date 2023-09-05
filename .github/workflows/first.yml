@@ -1,0 +1,37 @@
+name: first-test-yaml
+on: push
+
+jobs: 
+  job1: 
+    name: first Job
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Step One
+      uses: actions/checkout@v2
+    - name: Step two
+      run: date
+  job2: 
+    name: second Job
+    runs-on: windows-latest
+    steps: 
+    - name: Step One
+      uses: actions/checkout@v2
+    - name: Step two
+      run: get-date
+  job3: 
+    name: third Job
+    runs-on: macos-latest
+    steps: 
+    - name: Step One
+      uses: actions/checkout@v2
+    - name: Step two
+      run: Date
+  job4: 
+    name: fourth Job
+    runs-on: windows-latest
+    needs: [job1, job2, job3]
+    steps: 
+    - name: Step One
+      uses: actions/checkout@v2
+    - name: Step two
+      run: netstat
